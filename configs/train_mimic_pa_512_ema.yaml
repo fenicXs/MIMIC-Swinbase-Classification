@@ -1,0 +1,32 @@
+experiment_name: swin_base_mimic_pa_512_ema
+data:
+  mimic_root: /scratch/pkrish52/MIMIC
+  train_csv: ./data/processed_pa/train.csv
+  val_csv: ./data/processed_pa/validate.csv
+  test_csv: ./data/processed_pa/test.csv
+  class_names_json: ./data/processed_pa/class_names.json
+  image_size: 512
+  num_workers: 8
+training:
+  batch_size: 32
+  epochs: 50
+  warmup_epochs: 3
+  lr: 0.0001
+  weight_decay: 0.01
+  mixed_precision: true
+  grad_accum_steps: 1
+  max_grad_norm: 1.0
+  ema:
+    enabled: true
+    decay: 0.999
+  eval_every: 1
+  checkpoint_dir: ./checkpoints
+  plots_dir: ./plots
+  seed: 42
+  auto_resume: true
+  top_k: 3
+  early_stopping:
+    enabled: true
+    patience: 7
+    min_delta: 0.0
+  evaluate_test_at_end: false
