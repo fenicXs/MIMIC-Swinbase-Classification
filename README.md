@@ -1,9 +1,9 @@
-# MIMIC-CXR PA Disease Classification (Swin-Base + EMA)
+﻿# MIMIC-CXR PA Disease Classification (Swin-Base + EMA)
 
-This repo is a **repo-style, reproducible** training pipeline to train **Swin-Base** on **MIMIC-CXR-JPG v2.0.0**
-using **CheXpert 14-labels** and **EMA (Exponential Moving Average)**.
+This repository provides a **reproducible** training pipeline to train **Swin-Base** on **MIMIC-CXR-JPG v2.0.0**
+using **CheXpert 14 labels** and **EMA (Exponential Moving Average)**.
 
-This is adapted from your earlier Swin-Base + EMA ChestXray14 repo, but updated for the **MIMIC folder structure**,
+It is adapted from a Swin-Base + EMA ChestXray14 pipeline and updated for the **MIMIC folder structure**,
 the official `mimic-cxr-2.0.0-split.csv` splits, and CheXpert labels.
 
 ## What this repo does (PA-only baseline)
@@ -13,7 +13,7 @@ the official `mimic-cxr-2.0.0-split.csv` splits, and CheXpert labels.
 - Uses **U-Zeros** uncertainty policy: `-1 -> 0`.
 - Keeps **all PA images**, even if multiple PA images exist for the same study (same study label repeated).
 
-## Quick start (on ASU SOL)
+## Quick start (example on ASU SOL)
 
 ### 0) Install deps
 ```bash
@@ -30,7 +30,7 @@ This reads:
 - `mimic-cxr-2.0.0-chexpert.csv`
 - `IMAGE_FILENAMES`
 
-…and writes:
+...and writes:
 - `data/processed_pa/train.csv`
 - `data/processed_pa/validate.csv`
 - `data/processed_pa/test.csv`
@@ -86,3 +86,4 @@ Edit `configs/train_mimic_pa_512_ema.yaml` to change:
 
 ## Notes
 This repo is scoped to **PA-only** training.
+
